@@ -1,0 +1,10 @@
+[project]
+title = "My Contact Book"
+
+[owner]
+name = "Steven O'Driscoll"
+
+
+[database]
+server = "192.168.1.1"
+port = [3306]
