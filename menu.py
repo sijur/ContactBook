@@ -15,8 +15,7 @@ class Menu:
         # width of longest item
         width = 0
         for row in menu:
-            width = (len(row), width)[width < len(row)]
-
+            width = (width, len(row))[width < len(row)]
 
         for idx, row in enumerate(menu):
             # x = w//2 - len(row)//2
