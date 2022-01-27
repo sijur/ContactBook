@@ -5,7 +5,7 @@ from menu import Menu
 
 class Contact:
     def __init__(self) -> None:
-        self.menu = ['Add', 'Remove', 'Update', 'Exit']
+        self.menu = ['Add Contact', 'Remove Contact', 'Update Contact', 'Exit']
 
     def setup(self) -> None:
         #initialize curses into stdscr

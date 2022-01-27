@@ -12,9 +12,19 @@ class Menu:
         stdscr.clear()
         h, w = stdscr.getmaxyx()
 
+        # width of longest item
+        width = 0
+        for row in menu:
+            width = (len(row), width)[width < len(row)]
+
+
         for idx, row in enumerate(menu):
-            x = w//2 - len(row)//2
-            y = h//2 - len(menu)//2 + idx
+            # x = w//2 - len(row)//2
+            x = w//2 - width//2
+            if idx == len(menu) - 1:
+                y = h//2 - len(menu)//2 + (idx + 1)
+            else:
+                y = h//2 - len(menu)//2 + idx
 
             if idx == selected_row_idx:
                 stdscr.addstr(y, x, row, curses.color_pair(1))
