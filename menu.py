@@ -18,7 +18,6 @@ class Menu:
             width = (width, len(row))[width < len(row)]
 
         for idx, row in enumerate(menu):
-            # x = w//2 - len(row)//2
             x = w//2 - width//2
             if idx == len(menu) - 1:
                 y = h//2 - len(menu)//2 + (idx + 1)
