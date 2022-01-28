@@ -13,9 +13,7 @@ class Menu:
         h, w = stdscr.getmaxyx()
 
         # width of longest item
-        width = 0
-        for row in menu:
-            width = (width, len(row))[width < len(row)]
+        width = self.get_width(menu)
 
         for idx, row in enumerate(menu):
             x = w//2 - width//2
@@ -30,3 +28,10 @@ class Menu:
                 stdscr.addstr(y, x, row)
 
         stdscr.refresh()
+    
+    def get_width(self, menu) -> int:
+        width = 0
+        for row in menu:
+            width = (width, len(row))[width < len(row)]
+        
+        return width
