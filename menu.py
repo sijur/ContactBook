@@ -35,3 +35,6 @@ class Menu:
             width = (width, len(row))[width < len(row)]
         
         return width
+    
+    def display_menu(self) -> None:
+        pass

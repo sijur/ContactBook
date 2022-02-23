@@ -5,7 +5,7 @@ from menu import Menu
 
 class Contact:
     def __init__(self) -> None:
-        self.menu = ['Add Contact', 'Remove Contact', 'Update Contact', 'Exit']
+        self.menu = ["List contacts", "Create new address book", 'Exit',]
 
     def setup(self) -> None:
         #initialize curses into stdscr
@@ -36,7 +36,13 @@ class Contact:
                 current_row_idx += 1
             elif key == curses.KEY_ENTER or key in [10, 13]:
                 if current_row_idx == len(menu) - 1:
-                    break
+                    quit()
+                elif current_row_idx == 0:
+                    # list all contacts
+                    pass
+                elif current_row_idx == 1:
+                    # create a new address book
+                    pass
                 
                 stdscr.clear()
                 stdscr.addstr(0,0, 'You clicked on {}.'.format(menu[current_row_idx]), curses.color_pair(0))
