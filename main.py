@@ -15,9 +15,5 @@ class Main:
 
         scr.end()
 
-    def setup_curses(self) -> None:
-        # setup the menu's screen
-        pass
-
 main = Main()
 main.controller()
