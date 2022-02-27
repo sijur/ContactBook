@@ -4,6 +4,7 @@ class Menu:
     def __init__(self) -> None:
         pass
 
+    # simply return the array of the current menu level
     def setup(self, lvl) -> str:
         return self.getMenu(lvl)
     
