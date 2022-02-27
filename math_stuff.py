@@ -19,9 +19,10 @@ class MathStuff:
     
     def get_y(self, h, menu, idx) -> int:
         # h = height of the screen
+
+        y = h//2 - len(menu)//2 + idx
+
         if idx == len(menu) - 1:
-            y = h//2 - len(menu)//2 + (idx + 1)
-        else:
-            y = h//2 - len(menu)//2 + idx
+            y += 1
         
         return y
