@@ -10,7 +10,7 @@ class Menu:
     
     def getMenu(self, lvl) -> str:
        menu = {
-           0: ["List contacts", "Create new address book", 'Exit',],
+           0: ['List contacts', 'Create new address book', 'Exit',],
        }
 
        return menu[lvl]

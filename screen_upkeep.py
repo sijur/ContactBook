@@ -80,7 +80,7 @@ class ScreenUpkeep:
 
                 # ToDo: this will have to be changed at some point
                 # since the quit option may have to change.
-                if current_row_idx == len(menu) - 1:
+                if menu[current_row_idx] == "Exit":
                     quit()
                 
                 # clear the screen
@@ -103,30 +103,33 @@ class ScreenUpkeep:
         stdscr.getch()
     
     def create_menu(self, stdscr, menu, selected_row_idx) -> None:
-        # clear the screen
-        stdscr.clear()
-
         # initiate the MathStuff class.
         math = MathStuff()
+        
         # total width of the menu itself, nothing else.
         width = math.total_menu_width(menu)
 
          # get the height and width of the screen.
         h, w = stdscr.getmaxyx()
 
+        # clear the screen
+        stdscr.clear()
+
         for idx, row in enumerate(menu):
             # for each item we need to get the center position.
             
-            x = math.get_x(w, width)
-
-            # get the greatest width of the text
+            # get the vertical position on the screen
             y = math.get_y(h, menu, idx)
             
+            # get the greatest width of the text
+            x = math.get_x(w, width)
 
-            # highlight the current selection otherwise don't.
-            if idx == selected_row_idx:
-                stdscr.addstr(y, x, row, curses.color_pair(1))
-            else:
-                stdscr.addstr(y, x, row)
-
+            self.highlightSelection(y, x, row, stdscr, selected_row_idx, idx)
+            
     
+    def highlightSelection(self, y, x, row, stdscr, row_idx, idx) -> None:
+        # highlight the current selection otherwise don't.
+        if idx == row_idx:
+            stdscr.addstr(y, x, row, curses.color_pair(1))
+        else:
+            stdscr.addstr(y, x, row)
