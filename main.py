@@ -1,4 +1,4 @@
-from screen_upkeep import ScreenUpkeep
+from screen_upkeep_lib.screen_display import DisplayScreen
 
 class Main:
     def __init__(self) -> None:
@@ -8,7 +8,7 @@ class Main:
     def controller(self) -> None:
         # control project
         # setup curses.
-        scr = ScreenUpkeep()
+        scr = DisplayScreen()
         scr.start()
 
         scr.display()
