@@ -1,10 +1,7 @@
 import curses
 from curses import wrapper
-
 from screen_upkeep import ScreenUpkeep
-
 from menu import Menu
-
 from math_stuff import MathStuff
 
 class DisplayScreen(ScreenUpkeep):
