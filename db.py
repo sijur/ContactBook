@@ -1,8 +1,6 @@
 import pymysql.cursors
 import toml
 
-from query_builder_lib.query_builder_api import QueryBuilderAPI
-
 class DatabaseUpkeep:
 	def __init__(self) -> None:
 		# get db settings
