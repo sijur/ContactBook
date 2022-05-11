@@ -128,4 +128,9 @@ dmypy.json
 # Pyre type checker
 .pyre/
 
+# IDE's
 .vscode/
+.idea/
+
+# OLD files don't include
+.query*

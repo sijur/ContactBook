@@ -3,6 +3,7 @@ from curses import wrapper
 from screen_upkeep import ScreenUpkeep
 from menu import Menu
 from math_stuff import MathStuff
+from .key_press import KeyPress
 
 class DisplayScreen(ScreenUpkeep):
 	def __init__(self) -> None:
@@ -15,14 +16,8 @@ class DisplayScreen(ScreenUpkeep):
 		wrapper(self.display_menu)
 
 	def display_menu(self, stdscr) -> None:
-		# hide the cursor
-		curses.curs_set(0)
-
-		# initiate a color pair, black and white
-		curses.init_pair(1, curses.COLOR_BLACK, curses.COLOR_WHITE)
-
-		# clear the screen
-		stdscr.clear()
+		# initiate screen
+		self._initiate_screen(stdscr)
 
 		# initiate the menu class.
 		m = Menu()
@@ -44,34 +39,9 @@ class DisplayScreen(ScreenUpkeep):
 			# clear the screen
 			stdscr.clear()
 
-			# if the user presses the "up" arrow and
-			# they're not already at the top
-			if key == curses.KEY_UP and current_row_idx > 0:
-				# decrease the current_row_idx by 1.
-				current_row_idx -= 1
-			# if the user presses the down arrow and they're not
-			# at the bottom
-			elif key == curses.KEY_DOWN and current_row_idx < len(menu) - 1:
-				# increase the current_row_idx by 1.
-				current_row_idx += 1
-			# if the user presses the enter key
-			elif key == curses.KEY_ENTER or key in [10, 13]:
-				# if the user is at the bottom of the menu
-				# or at the exit option quit the program.
-
-				if menu[current_row_idx] == "Exit":
-					quit()
-				
-				# clear the screen
-				stdscr.clear()
-				# display text regarding what the user chose.
-				stdscr.addstr(0,0, 'You clicked on {}.'.format(menu[current_row_idx]), curses.color_pair(0))
-
-				# refresh the screen to redraw it.
-				stdscr.refresh()
-				
-				# return the character that the user pressed.
-				stdscr.getch()
+			# what to do when a key is pressed.
+			key_action = KeyPress()
+			current_row_idx = key_action.setup(key, current_row_idx, menu, stdscr)
 
 			# redraw the menu
 			self.create_menu(stdscr, menu, current_row_idx)
