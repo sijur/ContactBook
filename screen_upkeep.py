@@ -2,6 +2,16 @@ import curses
 class ScreenUpkeep: 
 	def __init__(self) -> None:
 		self.setup()
+	
+	def _initiate_screen(self, stdscr: object) -> None:
+		# hide the cursor
+		curses.curs_set(0)
+
+		# initiate a color pair, black and white
+		curses.init_pair(1, curses.COLOR_BLACK, curses.COLOR_WHITE)
+
+		# clear the screen
+		stdscr.clear()
 
 	def setup(self) -> None:
 		# set up the screen variable.
