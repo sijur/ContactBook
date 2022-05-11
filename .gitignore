@@ -134,3 +134,4 @@ dmypy.json
 
 # OLD files don't include
 .query*
+.old_stuff
