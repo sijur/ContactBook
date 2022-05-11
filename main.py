@@ -1,19 +1,18 @@
-from screen_upkeep_lib.screen_display import DisplayScreen
+
 
 class Main:
 	def __init__(self) -> None:
 		# setup class
 		pass
 
+	def setup(self) -> None:
+		pass
+
 	def controller(self) -> None:
 		# control project
-		# setup curses.
-		scr = DisplayScreen()
-		scr.start()
+		pass
+		
 
-		scr.display()
-
-		scr.end()
-
-main = Main()
-main.controller()
+if __name__ == '__main__':
+	main = Main()
+	main.setup()
