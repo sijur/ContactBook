@@ -1,4 +1,4 @@
-from screen_setup import ScreenSetup
+from screen_upkeep import DisplayScreen
 
 class Main:
 	def __init__(self) -> None:
@@ -11,7 +11,7 @@ class Main:
 
 	def controller(self) -> None:
 		# control project
-		scr = ScreenSetup()
+		scr = DisplayScreen()
 		# start screen setup
 		scr.setup('initialize')
 

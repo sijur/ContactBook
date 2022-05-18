@@ -1,4 +1,5 @@
 import curses
+from ..menu import Menu
 class InitializeScreen:
 	def __init__(self, stdscr) -> None:
 		self.stdscr = stdscr
@@ -15,9 +16,15 @@ class InitializeScreen:
 
 		# startup the screen
 		self.startup()
+
+		# print the menu
+		self.print_starting_screen()
 	
 	def startup(self) -> None:
 		stdscr = self.stdscr
 		curses.noecho()
 		curses.cbreak()
 		stdscr.keypad(True)
+
+	def print_starting_screen(self) -> None:
+		pass

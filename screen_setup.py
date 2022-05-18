@@ -24,3 +24,7 @@ class ScreenSetup:
 	def _destruct(self, stdscr: object) -> None:
 		screen_destruct = DestructScreen(stdscr)
 		screen_destruct.setup()
+
+	def _prepare_screen(self, stdscr) -> None:
+		# just preparing the screen.
+		pass
